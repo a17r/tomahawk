@@ -169,7 +169,7 @@ set( libGuiSources
     widgets/searchlineedit/SearchLineEdit.cpp
 )
 
-if(QCA2_FOUND)
+if(Qca-qt5_FOUND)
     set( libGuiSources ${libGuiSources} utils/GroovesharkParser.cpp )
 endif()
 
@@ -497,10 +497,9 @@ if(APPLE)
     target_link_libraries(${TOMAHAWK_LIBRARY} PRIVATE Qt5::MacExtras)
 endif()
 
-IF(QCA2_FOUND)
-    INCLUDE_DIRECTORIES( ${QCA2_INCLUDE_DIR} )
-    LIST(APPEND LINK_LIBRARIES ${QCA2_LIBRARIES} )
-ENDIF(QCA2_FOUND)
+if(Qca-qt5_FOUND)
+    list(APPEND LINK_LIBRARIES qca-qt5)
+endif()
 
 IF( UNIX AND NOT APPLE )
     LIST(APPEND LINK_LIBRARIES ${QT_QTDBUS_LIBRARIES} )

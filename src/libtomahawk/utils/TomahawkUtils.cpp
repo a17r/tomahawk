@@ -65,7 +65,7 @@
     #include <sys/sysctl.h>
 #endif
 
-#ifdef QCA2_FOUND
+#ifdef HAVE_QCA
     #include <QtCrypto>
 #endif
 

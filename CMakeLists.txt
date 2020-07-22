@@ -227,12 +227,14 @@ macro_log_feature(GNUTLS_FOUND "GnuTLS"
     "http://gnutls.org/" TRUE ""
     "GnuTLS is needed for serving the Playdar/HTTP API via TLS")
 
-macro_optional_find_package(Qca-qt5)
-if(Qca-qt5_DIR)
-    set(QCA2_FOUND ON CACHE BOOL "QCA2 was found")
-    set(QCA2_LIBRARIES "qca-qt5" CACHE STRING "QCA2 Qt5 target")
-endif()
-macro_log_feature(QCA2_FOUND "QCA2" "Provides encryption and signing functions necessary for some resolvers and accounts" "http://delta.affinix.com/qca/" TRUE "" "")
+find_package(Qca-qt5 2.1.0 CONFIG)
+set_package_properties(Qca-qt5 PROPERTIES
+    DESCRIPTION "Support for encryption"
+    URL "https://download.kde.org/stable/qca/"
+    TYPE OPTIONAL
+    PURPOSE "Necessary for encryption and signing functions of some resolvers and accounts."
+)
+set(HAVE_QCA ${Qca-qt5_FOUND})
 
 macro_optional_find_package(KF5Attica 1.0.0)
 set(LIBATTICA_FOUND ${KF5Attica_FOUND})

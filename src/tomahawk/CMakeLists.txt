@@ -121,10 +121,6 @@ IF( APPLE )
     SET( tomahawkSources ${tomahawkSources} mac/TomahawkApp_Mac.mm mac/MacShortcutHandler.cpp )
 ENDIF( APPLE )
 
-IF( QCA2_FOUND )
-    INCLUDE_DIRECTORIES( ${QCA2_INCLUDE_DIR} )
-ENDIF( QCA2_FOUND )
-
 INCLUDE(GNUInstallDirs)
 
 # currently only in libtomahawk, we might want to properly split what's in which config file
@@ -187,9 +183,9 @@ MESSAGE( STATUS "OS_SPECIFIC_LINK_LIBRARIES: ${OS_SPECIFIC_LINK_LIBRARIES}" )
 IF( LIBLASTFM_FOUND )
     LIST(APPEND LINK_LIBRARIES ${LINK_LIBRARIES} ${LIBLASTFM_LIBRARIES} )
 ENDIF( LIBLASTFM_FOUND )
-IF( QCA2_FOUND )
-    LIST(APPEND LINK_LIBRARIES ${LINK_LIBRARIES} ${QCA2_LIBRARIES} )
-ENDIF( QCA2_FOUND )
+if(Qca-qt5_FOUND)
+    list(APPEND LINK_LIBRARIES ${LINK_LIBRARIES} qca-qt5)
+endif()
 IF( WITH_CRASHREPORTER )
     LIST(APPEND LINK_LIBRARIES ${LINK_LIBRARIES} crashreporter-handler )
 ENDIF()

@@ -19,7 +19,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${WEBSOCKETPP_INCLUDE_DIR}
     ${TOMAHAWK_INCLUDE_DIRS}
-    ${QCA2_INCLUDE_DIR}
 )
 
 add_definitions(-D_WEBSOCKETPP_CPP11_STL_)
@@ -38,7 +37,7 @@ tomahawk_add_plugin(hatchet
         account/HatchetAccountConfig.ui
     LINK_LIBRARIES
         ${TOMAHAWK_LIBRARIES}
-        ${QCA2_LIBRARIES}
+        qca-qt5
         ${PLATFORM_SPECIFIC_LINK_LIBRARIES}
 )
 

@@ -19,7 +19,7 @@
 #cmakedefine WITH_GNOMESHORTCUTHANDLER
 
 #cmakedefine LIBLASTFM_FOUND
-#cmakedefine QCA2_FOUND
+#cmakedefine HAVE_QCA
 #cmakedefine QTSPARKLE_FOUND
 
 #cmakedefine TOMAHAWK_FINEGRAINED_MESSAGES
