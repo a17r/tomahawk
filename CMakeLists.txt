@@ -236,9 +236,13 @@ set_package_properties(Qca-qt5 PROPERTIES
 )
 set(HAVE_QCA ${Qca-qt5_FOUND})
 
-macro_optional_find_package(KF5Attica 1.0.0)
-set(LIBATTICA_FOUND ${KF5Attica_FOUND})
-macro_log_feature(LIBATTICA_FOUND "libattica" "Provides support for installation of resolvers from the Tomahawk website" "http://download.kde.org/stable/attica/" TRUE "" "")
+find_package(KF5Attica 1.0.0 CONFIG REQUIRED)
+set_package_properties(KF5Attica PROPERTIES
+    DESCRIPTION "Qt library that implements the Open Collaboration Services API"
+    URL "https://download.kde.org/stable/frameworks/"
+    TYPE REQUIRED
+    PURPOSE "Necessary for installation of resolvers from the Tomahawk website."
+)
 
 macro_optional_find_package(QuaZip)
 macro_log_feature(QUAZIP_FOUND "QuaZip" "Provides support for extracting downloaded resolvers automatically." "http://quazip.sourceforge.net/" TRUE "" "")
